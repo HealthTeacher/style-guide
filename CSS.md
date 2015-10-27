@@ -55,8 +55,7 @@ Use the `is-` prefix for state rules that are shared between CSS and JS.
 Never use IDs in your CSS, only refer to elements by their class name.
 
 ## Animations & Transitions
-- All major transitions are initiated in JavaScript, leveraging the
-  `jquery.transit.js` plugin to animate CSS properties (like `translateX`
-instead of `left`/`right`).
+- All major transitions are initiated in JavaScript, leveraging
+  [Velocity.js](http://julian.com/research/velocity/).
 - All hover interactions should rely on CSS. JavaScript should only be used when
   necessary to add a hover class for more complex interactions.
