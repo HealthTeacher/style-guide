@@ -25,7 +25,7 @@
 
   // good
   .Component {
-    @extend %placholder;
+    @extend %placeholder;
     @import transition(background 0.3s linear);
     font-size: 1.5rem;
 
