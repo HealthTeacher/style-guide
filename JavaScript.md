@@ -1,4 +1,5 @@
 # JavaScript
+Much of this was taken from [idiomatic-js](https://github.com/necolas/idiomatic-js). Please add to this guide if you find any particular patterns or styles that we've adopted internally. Submit a pull request to ask for feedback (if you're an employee).
 
 - Always include a space before and after a function arrow.
   ```coffeescript
@@ -20,7 +21,7 @@
 - No unnecessary fat arrows.
   ```coffeescript
   # bad
-  $el.on 'click', ->
+  $el.on "click", ->
     $.get(url).then =>
       console.log "this is never used"
   ```
@@ -35,10 +36,10 @@
   ```
 
 ## Naming
-- Use the `js-` prefix for any class or ID used by JavaScript. Do *NOT* apply styles to these classes.
+- Use the `js-` prefix for any `class` or `id` used by JavaScript. Do *NOT* apply styles to these classes.
 
 ## Backbone
-- For Layouts and Views, label them with `className` exclusively. Leave `id` for events.
+- For Layouts and Views, label them with `className` exclusively. Leave `id` for events handlers only.
 - Group related properties together. Groups should be separated by an empty line.
   ```coffeescript
   # bad

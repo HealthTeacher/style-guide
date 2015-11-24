@@ -1,7 +1,9 @@
 # CSS
+Much of this was taken from [idiomatic-css](https://github.com/necolas/idiomatic-css). Please add to this guide if you find any particular patterns or styles that we've adopted internally. Submit a pull request to ask for feedback (if you're an employee).
 
 ## Naming
 - Adhere to the [SuitCSS naming conventions](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md).
+- Use the `js-` prefix for any `class` or `id` used by JavaScript. Do *NOT* apply styles to these classes.
 
 ## Coding Style
 - Within a selector, declarations should be in the following order:
@@ -52,7 +54,6 @@
 
   .Component-child {}
   ```
-- Never apply styles to a `js-` prefixed class name.
 - Never target an element by it's `id`, always use `class` names.
 - Avoid using JavaScript for simple hover interactions. Rely solely on CSS when possible.
 - Use the [Velocity.js](http://julian.com/research/velocity/) for complex animations.
