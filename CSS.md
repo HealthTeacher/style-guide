@@ -1,61 +1,69 @@
 # CSS
 
-## Misc
-- Avoid nesting Sass more than three levels. If you find yourself needing this
-  much specificity, take a step back and reconsider your organization or markup.
-- Always prepend decimals values with a zero (e.g. – `0.25em`).
-- Do not use the [Bourbon position add-on](http://bourbon.io/docs/#position),
-  use the standard CSS attributes instead (i.e. – `position`, `top`, `right`,
-`bottom` , `left`).
+## Naming
+- Adhere to the [SuitCSS naming conventions](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md).
 
-## Order
-- Nested selectors should be in the following order:
-  1. Element states
-  2. Additive classes
-  3. Nested child selectors
-- Within a Sass selector, declarations should be in the following order:
+## Coding Style
+- Within a selector, declarations should be in the following order:
   1. `@extend`'s
   2. Single line `@import`'s
   3. CSS attributes
   4. Multi line `@imports`'s
 
+  ```scss
+  // bad
+  .Component {
+    @import transition(background 0.3s linear);
+    @extend $placeholder;
 
-#### Example
-```scss
-.parent {
-  @extend %placholder;
-  @import transition(background 0.3s linear);
-  font-size: 1.5em;
+    @import media($medium-up) {
+      @include span-columns(6);
+    }
 
-  @import media($medium-up) {
-    @include span-columns(6);
+    font-size: 1.5rem;
   }
 
-  &:hover {
-    color: $white;
+  // good
+  .Component {
+    @extend %placholder;
+    @import transition(background 0.3s linear);
+    font-size: 1.5rem;
+
+    @import media($medium-up) {
+      @include span-columns(6);
+    }
+  }
+  ```
+- Only use nested selectors for browser states (e.g. – `hover`, `focus`, etc).
+
+  ```scss
+  // bad
+  .Component {
+    &.is-expanded {}
+
+    .Component-child {}
   }
 
-  &.additive-class {
-    background: $red;
+  // good
+  .Component {
+    &:hover {}
   }
 
-  .child {
-    border-radius: 0.5em;
-  }
-}
-```
+  .Component.is-expanded {}
 
-## Class naming conventions
-Never references a `js-` prefixed class names from CSS files. `js-` are used
-exclusively for JS files.
+  .Component-child {}
+  ```
 
-Use the `is-` prefix for state rules that are shared between CSS and JS.
+- Never apply styles to a `js-` prefixed class name.
+- Never target an element by it's `id`, always use `class` names.
+- Avoid using JavaScript for simple hover interactions. Rely solely on CSS when possible.
+- Use the [Velocity.js](http://julian.com/research/velocity/) for complex animations.
+- Always prepend decimals values with a zero.
+  ```scss
+  // bad
+  font-size: .25rem;
 
-## Specificity (classes vs ids)
-Never use IDs in your CSS, only refer to elements by their class name.
-
-## Animations & Transitions
-- All major transitions are initiated in JavaScript, leveraging
-  [Velocity.js](http://julian.com/research/velocity/).
-- All hover interactions should rely on CSS. JavaScript should only be used when
-  necessary to add a hover class for more complex interactions.
+  // good
+  font-size: 0.25rem;
+  ```
+- Do _not_ use the [Bourbon position add-on](http://bourbon.io/docs/#position), use the CSS attributes instead (i.e. – `position`, `top`, `right`, `bottom` , `left`).

@@ -1,22 +1,63 @@
 # JavaScript
 
-## Class naming conventions
-If a JavaScript hook is needed, prefix the class or ID with `js-` (e.g. – `.js-classroom-name`).
+- Always include a space before and after a function arrow.
 
-For Layouts and Views, label them with `className` exclusively. Leave `id` for events.
+  ```coffeescript
+  # bad
+  sum = (a,b)->a + b
+  # good
+  sum = (a,b) -> a + b
+  ```
 
-## Group Backbone template properties together
-Group properties together logically with one line return between each. Each group should be separated by double line returns. The main group that is used most is as follows:
+- No empty parameter lists
 
-- `template`, `id`, `className`, `tagName`
+  ```coffeescript
+  # bad
+  foo = () ->
 
-Here is a generic example of a typical grouping:
+  # good
+  foo = ->
+  ```
 
-```coffeescript
-Marionette.ItemVew.extend
-  template: tpl
-  className: "view-edit-classroom"
+- No unnecessary fat arrows.
 
-  cancelEl: ".js-cancel"
-  submitEl: ".js-submit"
-```
+  ```coffeescript
+  # bad
+  $el.on 'click', ->
+    $.get(url).then =>
+      console.log "this is never used"
+  ```
+
+- Always throw Errors, not strings.
+
+  ```coffeescript
+  # bad
+  throw "expected string, got number"
+
+  # good
+  throw new TypeError "expected string, got number"
+  ```
+
+## Naming
+- Use the `js-` prefix for any class or ID used by JavaScript. Do *NOT* apply styles to these classes.
+
+## Backbone
+- For Layouts and Views, label them with `className` exclusively. Leave `id` for events.
+- Group related properties together. Groups should be separated by an empty line.
+
+  ```coffeescript
+  # bad
+  Marionette.ItemVew.extend
+    template: tpl
+    className: "view-edit-classroom"
+    cancelEl: ".js-cancel"
+    submitEl: ".js-submit"
+
+  # good
+  Marionette.ItemVew.extend
+    template: tpl
+    className: "view-edit-classroom"
+
+    cancelEl: ".js-cancel"
+    submitEl: ".js-submit"
+  ```
