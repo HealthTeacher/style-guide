@@ -1,10 +1,12 @@
 # Ruby
-Much of this was taken from [GitHub's Style Guide](https://github.com/styleguide/ruby). Please add to this guide if you find any particular patterns or styles that we've adopted internally. Submit a pull request to ask for feedback (if you're an employee).
+Much of this was taken from [GitHub's Style Guide](https://github.com/styleguide/ruby). Please add
+to this guide if you find any particular patterns or styles that we've adopted internally. Submit
+a pull request to ask for feedback (if you're an employee).
 
 ## Coding Style
 
 - Use soft-tabs with a two space indent.
-- Keep lines fewer than 80 characters.
+- Keep lines fewer than 100 characters when possible (not a hard rule).
 - Never leave trailing whitespace.
 - End each file with a blank newline.
 - Use spaces around operators, after commas, colons and semicolons, around `{` and before `}`.
@@ -69,30 +71,11 @@ Much of this was taken from [GitHub's Style Guide](https://github.com/styleguide
     end
   ```
 
-### Documentation
-
-Use [TomDoc](http://tomdoc.org/) to the best of your ability. It's pretty sweet:
-
-```ruby
-# Public: Duplicate some text an arbitrary number of times.
-#
-# text  - The String to be duplicated.
-# count - The Integer number of times to duplicate the text.
-#
-# Examples
-#
-#   multiplex("Tom", 4)
-#   # => "TomTomTomTom"
-#
-# Returns the duplicated String.
-def multiplex(text, count)
-  text * count
-end
-```
-
 ## Requires
 
-Always `require` dependencies used directly in a script at the start of the same file. Resources that will get autoloaded on first use—such as Rails models, controllers, or helpers—don't need to be required.
+Always `require` dependencies used directly in a script at the start of the same file. Resources
+that will get autoloaded on first use - such as Rails models, controllers, or helpers - don't need
+to be required.
 
 ```ruby
 require "set"
@@ -102,11 +85,13 @@ require "time"
 Time.parse("2015-10-21")
 ```
 
-This not only loads the necessary dependencies if they haven't already, but acts as documentation about the libraries that the current file uses.
+This not only loads the necessary dependencies if they haven't already, but acts as documentation
+about the libraries that the current file uses.
 
 ## Syntax
 
-- Use `def` with parentheses when there are arguments. Omit the parentheses when the method doesn't accept any arguments.
+- Use `def` with parentheses when there are arguments. Omit the parentheses when the method doesn't
+accept any arguments.
 
   ```ruby
   def some_method
@@ -118,7 +103,10 @@ This not only loads the necessary dependencies if they haven't already, but acts
   end
   ```
 
-- Never use `for`, unless you know exactly why. Most of the time iterators should be used instead. for is implemented in terms of `each` (so you're adding a level of indirection), but with a twist - for doesn't introduce a new scope (unlike `each`) and variables defined in its block will be visible outside it.
+- Never use `for`, unless you know exactly why. Most of the time iterators should be used instead.
+`for` is implemented in terms of `each` (so you're adding a level of indirection), but with a
+twist - `for` doesn't introduce a new scope (unlike `each`) and variables defined in its block
+will be visible outside it.
 
   ```ruby
   arr = [1, 2, 3]
@@ -146,7 +134,9 @@ This not only loads the necessary dependencies if they haven't already, but acts
   end
   ```
 
-- Avoid the ternary operator (`?:`) except in cases where all expressions are extremely trivial. However, do use the ternary operator(`?:`) over `if/then/else/end` constructs for single line conditionals.
+- Avoid the ternary operator (`?:`) except in cases where all expressions are extremely trivial.
+However, do use the ternary operator(`?:`) over `if/then/else/end` constructs for single line
+conditionals.
 
   ```ruby
   # bad
@@ -170,7 +160,8 @@ This not only loads the necessary dependencies if they haven't already, but acts
   end
   ```
 
-- The `and` and `or` keywords are banned. It's just not worth it. Always use `&&` and `||` instead.
+- The `and` and `or` keywords are banned in almost every case (unless you are absolutely sure of
+what you are doing). For most cases, just use `&&` and `||` instead.
 - Avoid multi-line `?:` (the ternary operator), use `if/unless` instead.
 - Favor modifier `if/unless` usage when you have a single-line body.
 
@@ -216,7 +207,9 @@ This not only loads the necessary dependencies if they haven't already, but acts
   end
   ```
 
-- Prefer `{...}` over do...end for single-line blocks. Avoid using `{...}` for multi-line blocks (multiline chaining is always ugly). Always use `do...end` for "control flow" and "method definitions" (e.g. in Rakefiles and certain DSLs). Avoid `do...end` when chaining.
+- Prefer `{...}` over do...end for single-line blocks. Avoid using `{...}` for multi-line
+blocks (multiline chaining is always ugly). Always use `do...end` for "control flow" and
+"method definitions" (e.g. in Rakefiles and certain DSLs). Avoid `do...end` when chaining.
 
   ```ruby
   names = ["Bozhidar", "Steve", "Sarah"]
@@ -238,7 +231,9 @@ This not only loads the necessary dependencies if they haven't already, but acts
   end.map { |name| name.upcase }
   ```
 
-  Some will argue that multiline chaining would look OK with the use of `{...}`, but they should ask themselves - is this code really readable and can't the block's contents be extracted into nifty methods?
+  Some will argue that multiline chaining would look OK with the use of `{...}`, but they should
+  ask themselves - is this code really readable and can't the block's contents be extracted
+  into nifty methods?
 
 - Avoid `return` where not required.
 
@@ -268,7 +263,8 @@ This not only loads the necessary dependencies if they haven't already, but acts
   end
   ```
 
-  While several Ruby books suggest the first style, the second is much more prominent in practice (and arguably a bit more readable).
+  While several Ruby books suggest the first style, the second is much more prominent in
+  practice (and arguably a bit more readable).
 
 - Using the return value of `=` (an assignment) is ok.
 
@@ -290,7 +286,8 @@ This not only loads the necessary dependencies if they haven't already, but acts
   name ||= "Bozhidar"
   ```
 
-- Don't use `||=` to initialize boolean variables. (Consider what would happen if the current value happened to be `false`.)
+- Don't use `||=` to initialize boolean variables. (Consider what would happen if the current
+value happened to be `false`.)
 
   ```ruby
   # bad - would set enabled to true even if it was false
@@ -300,7 +297,9 @@ This not only loads the necessary dependencies if they haven't already, but acts
   enabled = true if enabled.nil?
   ```
 
-- Avoid using Perl-style special variables (like `$0-9`, `$`, etc. ). They are quite cryptic and their use in anything but one-liner scripts is discouraged. Prefer long form versions such as `$PROGRAM_NAME`.
+- Avoid using Perl-style special variables (like `$0-9`, `$`, etc. ). They are quite cryptic
+and their use in anything but one-liner scripts is discouraged. Prefer long form versions such
+as `$PROGRAM_NAME`.
 
 - Never put a space between a method name and the opening parenthesis.
 
@@ -312,7 +311,8 @@ This not only loads the necessary dependencies if they haven't already, but acts
   f(3 + 2) + 1
   ```
 
-- If the first argument to a method begins with an open parenthesis, always use parentheses in the method invocation. For example, write `f((3 + 2) + 1)`.
+- If the first argument to a method begins with an open parenthesis, always use parentheses in the
+method invocation. For example, write `f((3 + 2) + 1)`.
 
 - Use `_` for unused block parameters.
 
@@ -324,7 +324,9 @@ This not only loads the necessary dependencies if they haven't already, but acts
   result = hash.map { |_, v| v + 1 }
   ```
 
-- Don't use the `===` (threequals) operator to check types. `===` is mostly an implementation detail to support Ruby features like case, and it's not commutative. For example, `String === "hi"` is true and `"hi" === String` is false. Instead, use `is_a?` or `kind_of?` if you must.
+- Don't use the `===` (threequals) operator to check types. `===` is mostly an implementation
+detail to support Ruby features like case, and it's not commutative. For example, `String === "hi"`
+is true and `"hi" === String` is false. Instead, use `is_a?` or `kind_of?` if you must.
 
   Refactoring is even better. It's worth looking hard at any code that explicitly checks types.
 
@@ -333,8 +335,11 @@ This not only loads the necessary dependencies if they haven't already, but acts
 - Use `snake_case` for methods and variables.
 - Use `CamelCase` for classes and modules. (Keep acronyms like HTTP, RFC, XML uppercase.)
 - Use `SCREAMING_SNAKE_CASE` for other constants.
-- The names of predicate methods (methods that return a boolean value) should end in a question mark. (i.e. `Array#empty?`).
-- The names of potentially "dangerous" methods (i.e. methods that modify `self` or the arguments, `exit!`, etc.) should end with an exclamation mark. Bang methods should only exist if a non-bang method exists. ([More on this](http://dablog.rubypal.com/2007/8/15/bang-methods-or-danger-will-rubyist)).
+- The names of predicate methods (methods that return a boolean value) should end in a question
+mark. (i.e. `Array#empty?`).
+- The names of potentially "dangerous" methods (i.e. methods that modify `self` or the arguments,
+`exit!`, etc.) should end with an exclamation mark. Bang methods should only exist if a non-bang
+method exists. ([More on this](http://dablog.rubypal.com/2007/8/15/bang-methods-or-danger-will-rubyist)).
 
 ## Classes
 
@@ -356,9 +361,11 @@ This not only loads the necessary dependencies if they haven't already, but acts
   Parent.print_class_var # => will print "child"
   ```
 
-- As you can see all the classes in a class hierarchy actually share one class variable. Class instance variables should usually be preferred over class variables.
+- As you can see all the classes in a class hierarchy actually share one class variable. Class
+instance variables should usually be preferred over class variables.
 
-- Use `def self.method` to define singleton methods. This makes the methods more resistant to refactoring changes.
+- Use `def self.method` to define singleton methods. This makes the methods more resistant to
+refactoring changes.
 
   ```ruby
   class TestClass
@@ -404,7 +411,8 @@ This not only loads the necessary dependencies if they haven't already, but acts
   end
   ```
 
-- Indent the `public`, `protected`, and `private` methods as much the method definitions they apply to. Leave one blank line above them.
+- Indent the `public`, `protected`, and `private` methods as much the method definitions they
+apply to. Leave one blank line above them, and no blank lines below.
 
   ```ruby
   class SomeClass
@@ -482,16 +490,21 @@ This not only loads the necessary dependencies if they haven't already, but acts
   STATES = %w(draft open closed)
   ```
 
-- Use `Set` instead of `Array` when dealing with unique elements. `Set` implements a collection of unordered values with no duplicates. This is a hybrid of `Array`'s intuitive inter-operation facilities and `Hash`'s fast lookup.
+- Use `Set` instead of `Array` when dealing with unique elements. `Set` implements a collection of
+unordered values with no duplicates. This is a hybrid of `Array`'s intuitive inter-operation
+facilities and `Hash`'s fast lookup.
 
-- Use symbols instead of strings as hash keys.
+- Use symbols instead of strings as hash keys. Use 1.9 style hash syntax.
 
   ```ruby
   # bad
   hash = { "one" => 1, "two" => 2, "three" => 3 }
 
-  # good
+  # still bad
   hash = { :one => 1, :two => 2, :three => 3 }
+
+  # good
+  hash = { one: 1, two: 2, three: 3 }
   ```
 
 ## Strings
@@ -506,17 +519,20 @@ This not only loads the necessary dependencies if they haven't already, but acts
   email_with_name = "#{user.name} <#{user.email}>"
   ```
 
-- Use double-quoted strings. Interpolation and escaped characters will always work without a delimiter change, and `'` is a lot more common than `"` in string literals.
+- Use single-quoted strings when interpolation is not needed.
 
   ```ruby
   # bad
-  name = 'Bozhidar'
+  name = "Bozhidar"
 
   # good
-  name = "Bozhidar"
+  name = 'Bozhidar'
+  greeting = "Hello, #{name}!"
   ```
 
-- Avoid using `String#+` when you need to construct large data chunks. Instead, use `String#<<`. Concatenation mutates the string instance in-place and is always faster than `String#+`, which creates a bunch of new string objects.
+- Avoid using `String#+` when you need to construct large data chunks. Instead, use `String#<<`.
+Concatenation mutates the string instance in-place and is always faster than `String#+`, which
+creates a bunch of new string objects.
 
   ```ruby
   # good and also fast
@@ -544,7 +560,8 @@ This not only loads the necessary dependencies if they haven't already, but acts
   process meaningful_var
   ```
 
-- Be careful with `^` and `$` as they match start/end of line, not string endings. If you want to match the whole string use: `\A` and `\z`.
+- Be careful with `^` and `$` as they match start/end of line, not string endings. If you want to
+match the whole string use: `\A` and `\z`.
 
   ```ruby
   string = "some injection\nusername"
@@ -552,7 +569,8 @@ This not only loads the necessary dependencies if they haven't already, but acts
   string[/\Ausername\z/] # don't match
   ```
 
-- Use `x` modifier for complex regexps. This makes them more readable and you can add some useful comments. Just be careful as spaces are ignored.
+- Use `x` modifier for complex regexps. This makes them more readable and you can add some useful
+comments. Just be careful as spaces are ignored.
 
   ```ruby
   regexp = %r{
@@ -572,12 +590,13 @@ This not only loads the necessary dependencies if they haven't already, but acts
   STATES = %w(draft open closed)
   ```
 
-- Use `%()` for single-line strings which require both interpolation and embedded double-quotes. For multi-line strings, prefer heredocs.
+- Use `%()` for single-line strings which require both interpolation and embedded double-quotes.
+For multi-line strings, prefer heredocs.
 
   ```ruby
   # bad (no interpolation needed)
   %(<div class="text">Some text</div>)
-  # should be "<div class=\"text\">Some text</div>"
+  # should be '<div class="text">Some text</div>'
 
   # bad (no double-quotes)
   %(This is #{quality} style)
@@ -607,15 +626,9 @@ This not only loads the necessary dependencies if they haven't already, but acts
 
 ## Hashes
 
-- Use hashrocket syntax for Hash literals instead of the JSON style introduced in 1.9.
+- Use 1.9 syntax for Hash literals instead of hash rockets.
 
   ```ruby
-  # bad
-  user = {
-    login: "defunkt",
-    name: "Chris Wanstrath"
-  }
-
   # bad
   user = {
     login: "defunkt",
@@ -623,17 +636,25 @@ This not only loads the necessary dependencies if they haven't already, but acts
     "followers-count" => 52390235
   }
 
-  # good
+  # bad
   user = {
     :login => "defunkt",
     :name => "Chris Wanstrath",
     "followers-count" => 52390235
   }
+
+  # good
+  user = {
+    login: "defunkt",
+    name: "Chris Wanstrath"
+  }
   ```
 
 ## Keyword Arguments
 
-[Keyword arguments](http://magazine.rubyist.net/?Ruby200SpecialEn-kwarg) are recommended but not required when a method's arguments may otherwise be opaque or non-obvious when called. Additionally, prefer them over the old "Hash as pseudo-named args" style from pre-2.0 ruby.
+[Keyword arguments](http://magazine.rubyist.net/?Ruby200SpecialEn-kwarg) are recommended but not
+required when a method's arguments may otherwise be opaque or non-obvious when called. Additionally,
+prefer them over the old "Hash as pseudo-named args" style from pre-2.0 ruby.
 
 So instead of this:
 
