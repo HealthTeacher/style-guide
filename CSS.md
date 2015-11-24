@@ -35,7 +35,6 @@
   }
   ```
 - Only use nested selectors for browser states (e.g. – `hover`, `focus`, etc).
-
   ```scss
   // bad
   .Component {
@@ -53,7 +52,6 @@
 
   .Component-child {}
   ```
-
 - Never apply styles to a `js-` prefixed class name.
 - Never target an element by it's `id`, always use `class` names.
 - Avoid using JavaScript for simple hover interactions. Rely solely on CSS when possible.
@@ -66,4 +64,5 @@
   // good
   font-size: 0.25rem;
   ```
+
 - Do _not_ use the [Bourbon position add-on](http://bourbon.io/docs/#position), use the CSS attributes instead (i.e. – `position`, `top`, `right`, `bottom` , `left`).

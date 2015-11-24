@@ -1,7 +1,6 @@
 # JavaScript
 
 - Always include a space before and after a function arrow.
-
   ```coffeescript
   # bad
   sum = (a,b)->a + b
@@ -10,7 +9,6 @@
   ```
 
 - No empty parameter lists
-
   ```coffeescript
   # bad
   foo = () ->
@@ -20,7 +18,6 @@
   ```
 
 - No unnecessary fat arrows.
-
   ```coffeescript
   # bad
   $el.on 'click', ->
@@ -29,7 +26,6 @@
   ```
 
 - Always throw Errors, not strings.
-
   ```coffeescript
   # bad
   throw "expected string, got number"
@@ -44,7 +40,6 @@
 ## Backbone
 - For Layouts and Views, label them with `className` exclusively. Leave `id` for events.
 - Group related properties together. Groups should be separated by an empty line.
-
   ```coffeescript
   # bad
   Marionette.ItemVew.extend
