@@ -3,8 +3,21 @@ Much of this was taken from [GitHub's Style Guide](https://github.com/styleguide
 to this guide if you find any particular patterns or styles that we've adopted internally. Submit
 a pull request to ask for feedback (if you're an employee).
 
-## Coding Style
+## Table of Contents
+1. [Coding Style](#coding-style)
+1. [Requires](#requires)
+1. [Syntax](#syntax)
+1. [Naming](#naming)
+1. [Classes](#Classes)
+1. [Exceptions](#Exceptions)
+1. [Collections](#Collections)
+1. [Strings](#Strings)
+1. [Regular Expressions](#regular-expressions)
+1. [Percent Literals](#percent-literals)
+1. [Hashes](#hashes)
+1. [Keyword Arguments](#keyword-arguments)
 
+## Coding Style
 - Use soft-tabs with a two space indent.
 - Keep lines fewer than 100 characters when possible (not a hard rule).
 - Never leave trailing whitespace.
@@ -72,7 +85,6 @@ a pull request to ask for feedback (if you're an employee).
   ```
 
 ## Requires
-
 Always `require` dependencies used directly in a script at the start of the same file. Resources
 that will get autoloaded on first use - such as Rails models, controllers, or helpers - don't need
 to be required.
@@ -89,7 +101,6 @@ This not only loads the necessary dependencies if they haven't already, but acts
 about the libraries that the current file uses.
 
 ## Syntax
-
 - Use `def` with parentheses when there are arguments. Omit the parentheses when the method doesn't
 accept any arguments.
 
@@ -331,7 +342,6 @@ is true and `"hi" === String` is false. Instead, use `is_a?` or `kind_of?` if yo
   Refactoring is even better. It's worth looking hard at any code that explicitly checks types.
 
 ## Naming
-
 - Use `snake_case` for methods and variables.
 - Use `CamelCase` for classes and modules. (Keep acronyms like HTTP, RFC, XML uppercase.)
 - Use `SCREAMING_SNAKE_CASE` for other constants.
@@ -342,7 +352,6 @@ mark. (i.e. `Array#empty?`).
 method exists. ([More on this](http://dablog.rubypal.com/2007/8/15/bang-methods-or-danger-will-rubyist)).
 
 ## Classes
-
 - Avoid the usage of class (`@@`) variables due to their unusual behavior in inheritance.
 
   ```ruby
@@ -441,7 +450,6 @@ apply to. Leave one blank line above them, and no blank lines below.
   ```
 
 ## Exceptions
-
 - Don't use exceptions for flow of control.
 
   ```ruby
@@ -479,7 +487,6 @@ apply to. Leave one blank line above them, and no blank lines below.
   ```
 
 ## Collections
-
 - Prefer `%w` to the literal array syntax when you need an array of strings.
 
   ```ruby
@@ -508,7 +515,6 @@ facilities and `Hash`'s fast lookup.
   ```
 
 ## Strings
-
 - Prefer string interpolation instead of string concatenation:
 
   ```ruby

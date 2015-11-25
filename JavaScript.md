@@ -1,6 +1,15 @@
 # JavaScript
 Much of this was taken from [idiomatic-js](https://github.com/necolas/idiomatic-js). Please add to this guide if you find any particular patterns or styles that we've adopted internally. Submit a pull request to ask for feedback (if you're an employee).
 
+## Table of Contents
+1. [Naming](#naming)
+1. [Syntax](#syntax)
+1. [Strings](#strings)
+1. [Marionette](#marionette)
+
+## Naming
+- Use the `js-` prefix for any `class` or `id` used by JavaScript. Do *NOT* apply styles to these classes.
+
 ## Syntax
 - Always include a space before and after a function arrow.
   ```coffeescript
@@ -35,9 +44,6 @@ Much of this was taken from [idiomatic-js](https://github.com/necolas/idiomatic-
   # good
   throw new TypeError 'expected string, got number'
   ```
-
-## Naming
-- Use the `js-` prefix for any `class` or `id` used by JavaScript. Do *NOT* apply styles to these classes.
 
 ## Strings
 - Use single quoted strings. Only use double quoted strings when interpolation is needed.
