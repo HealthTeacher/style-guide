@@ -1,6 +1,7 @@
 # JavaScript
 Much of this was taken from [idiomatic-js](https://github.com/necolas/idiomatic-js). Please add to this guide if you find any particular patterns or styles that we've adopted internally. Submit a pull request to ask for feedback (if you're an employee).
 
+## Syntax
 - Always include a space before and after a function arrow.
   ```coffeescript
   # bad

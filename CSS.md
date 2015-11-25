@@ -5,7 +5,7 @@ Much of this was taken from [idiomatic-css](https://github.com/necolas/idiomatic
 - Adhere to the [SuitCSS naming conventions](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md).
 - Use the `js-` prefix for any `class` or `id` used by JavaScript. Do *NOT* apply styles to these classes.
 
-## Style
+## Syntax
 - Never target an element by it's `id`, always use `class` names.
 - Always prepend decimals values with a zero.
   ```scss
@@ -17,6 +17,9 @@ Much of this was taken from [idiomatic-css](https://github.com/necolas/idiomatic
   ```
 
 - Do _not_ use the [Bourbon position add-on](http://bourbon.io/docs/#position), use the CSS attributes instead (i.e. – `position`, `top`, `right`, `bottom` , `left`).
+
+## Strings
+- Use single quoted strings.
 
 ## Organization
 - Within a selector, declarations should be in the following order:
