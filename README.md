@@ -7,5 +7,6 @@
 
 ## Table of Contents
 1. [CSS](CSS.md)
-2. [JavaScript](JavaScript.md)
-3. [Ruby](Ruby.md)
+1. [Git](Git.md)
+1. [JavaScript](JavaScript.md)
+1. [Ruby](Ruby.md)

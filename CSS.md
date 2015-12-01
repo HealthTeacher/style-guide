@@ -14,6 +14,15 @@ Much of this was taken from [idiomatic-css](https://github.com/necolas/idiomatic
 
 ## Syntax
 - Never target an element by it's `id`, always use `class` names.
+- Only use single-line selectors for selectors with a single attribute.
+  ```scss
+  // bad
+  .foo { color: #fff; font-size: 1.5rem; }
+
+  // good
+  .foo { color: #fff; }
+  ```
+
 - Always prepend decimals values with a zero.
   ```scss
   // bad
@@ -27,6 +36,17 @@ Much of this was taken from [idiomatic-css](https://github.com/necolas/idiomatic
 
 ## Strings
 - Use single quoted strings.
+  ```scss
+  // bad
+  .foo {
+    background-image: url("bar.jpg");
+  }
+
+  // good
+  .foo {
+    background-image: url('bar.jpg');
+  }
+  ```
 
 ## Organization
 - Within a selector, declarations should be in the following order:
@@ -38,10 +58,10 @@ Much of this was taken from [idiomatic-css](https://github.com/necolas/idiomatic
   ```scss
   // bad
   .Component {
-    @import transition(background 0.3s linear);
+    @include transition(background 0.3s linear);
     @extend $placeholder;
 
-    @import media($medium-up) {
+    @include media($medium-up) {
       @include span-columns(6);
     }
 
@@ -51,15 +71,15 @@ Much of this was taken from [idiomatic-css](https://github.com/necolas/idiomatic
   // good
   .Component {
     @extend %placeholder;
-    @import transition(background 0.3s linear);
+    @include transition(background 0.3s linear);
     font-size: 1.5rem;
 
-    @import media($medium-up) {
+    @include media($medium-up) {
       @include span-columns(6);
     }
   }
   ```
-- Only use nested selectors for browser states (e.g. – `hover`, `focus`, etc).
+- Only use nested selectors for browser states (e.g. – `hover`, `focus`, etc), not for children or chains.
   ```scss
   // bad
   .Component {
