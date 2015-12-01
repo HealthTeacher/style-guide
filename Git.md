@@ -3,7 +3,7 @@
 ## Flow
 - Create a topic branch off of `origin/master`.
 - `rebase` against `origin/master` frequently.
-- Squash your commits into logical groups (more on that [here](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)).
+- Squash your commits into logical groups (more on that [here](https://davidwalsh.name/squash-commits-git)).
 - Push your topic branch to `origin`.
 - Submit a pull request to `master` or `staging`. Apply the appropriate label(s).
 - Receive approval from at least one reviewer.

@@ -10,7 +10,9 @@ Much of this was taken from [idiomatic-css](https://github.com/necolas/idiomatic
 
 ## Naming
 - Adhere to the [SuitCSS naming conventions](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md).
-- Use the `js-` prefix for any `class` or `id` used by JavaScript. Do *NOT* apply styles to these classes.
+- Use the `js-` prefix for any `class` or `id` used as a JavaScript hook.
+- Use the `qa-` prefix for `class` or `id` used as a testing hook.
+- Do *NOT* apply styles to `js-` or `qa-` prefixed classes.
 
 ## Syntax
 - Never target an element by it's `id`, always use `class` names.
