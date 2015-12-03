@@ -8,7 +8,9 @@ Much of this was taken from [idiomatic-js](https://github.com/necolas/idiomatic-
 1. [Marionette](#marionette)
 
 ## Naming
-- Use the `js-` prefix for any `class` or `id` used by JavaScript. Do *NOT* apply styles to these classes.
+- Use the `js-` prefix for any `class` or `id` used as a JavaScript hook.
+- Use the `qa-` prefix for `class` or `id` used as a testing hook.
+- Do *NOT* apply styles to `js-` or `qa-` prefixed classes.
 
 ## Syntax
 - Always include a space before and after a function arrow.
