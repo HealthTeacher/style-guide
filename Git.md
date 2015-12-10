@@ -11,7 +11,7 @@
 - Immediately deploy the appropriate environment.
 
 ## Branches
-- All branch names should be prefixed with one of the following: "feature", "bug", or "hot-fix".
+- All branch names should be prefixed with one of the following: "feature/", "bug/", "chore/", or "hot-fix/" followed by a concise description.
 - `rebase` regularly up until you publish your branch. Do *NOT* `rebase` after publishing your branch, as this will rewrite public history and can cause pain for the rest of the team.
 
 ## Commits
