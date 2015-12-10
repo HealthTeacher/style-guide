@@ -18,3 +18,9 @@
 - Capitalize your commit messages.
 - Start your message with a verb.
 - Use present tense.
+
+## Pull Requests
+- The PR submitter is responsible for handling any reviewer requested changes. This only changes in the following scenarios:
+  - The submitter requests assistance from a coworker and passes responsibility.
+  - A coworker is free and desires to handle the changes, in which case they should notify the submitter via Slack or PR comments.
+- Do *NOT* make changes to a PR for which you do not possess responsibility.
