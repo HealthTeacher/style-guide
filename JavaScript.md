@@ -13,6 +13,25 @@ Much of this was taken from [idiomatic-js](https://github.com/necolas/idiomatic-
 - Do *NOT* apply styles to `js-` or `qa-` prefixed classes.
 
 ## Syntax
+- Never exclude parenthesis `()` or curly brackets `{}`.
+  ```coffeescript
+  # bad
+  model = new Model
+    name: 'John Doe'
+
+  model.method 'foo', a: 'alpha', b: 'beta', ->
+    console.log 'callback'
+
+  # good
+  model = new Model({
+    name: 'John Doe'
+  })
+
+  model.method('foo', { a: 'alpha', b: 'beta' }, ->
+    console.log('callback')
+  )
+  ```
+
 - Always include a space before and after a function arrow.
   ```coffeescript
   # bad
@@ -33,18 +52,20 @@ Much of this was taken from [idiomatic-js](https://github.com/necolas/idiomatic-
 - No unnecessary fat arrows.
   ```coffeescript
   # bad
-  $el.on 'click', ->
-    $.get(url).then =>
+  $el.on('click', ->
+    $.get(url).then(=>
       console.log 'this is never used'
+    )
+  )
   ```
 
 - Always throw Errors, not strings.
   ```coffeescript
   # bad
-  throw 'expected string, got number'
+  throw('expected string, got number')
 
   # good
-  throw new TypeError 'expected string, got number'
+  throw(new TypeError('expected string, got number'))
   ```
 
 ## Strings
@@ -71,52 +92,58 @@ Much of this was taken from [idiomatic-js](https://github.com/necolas/idiomatic-
 - Group single-line properties together at the top of the `View`.
   ```coffeescript
   # bad
-  Marionette.ItemVew.extend
+  Marionette.ItemVew.extend({
     template: tpl
     method: ->
-      console.log 'something'
+      console.log('something')
     className: 'view-edit-classroom'
+  })
 
   # good
-  Marionette.ItemVew.extend
+  Marionette.ItemVew.extend({
     template: tpl
     className: 'view-edit-classroom'
 
     method: ->
-      console.log 'something'
+      console.log('something')
+  })
   ```
 
 - Order methods to follow the "life" of a `View`.
   ```coffeescript
   # bad
-  Marionette.ItemView.extend
+  Marionette.ItemView.extend({
     onClose: ->
     serializeData: ->
     onRender: ->
     initialize: ->
+  })
 
   #good
-  Marionette.ItemView.extend
+  Marionette.ItemView.extend({
     initialize: ->
     serializeData: ->
     onRender: ->
     onClose: ->
+  })
   ```
 
 - Separate multi-line properties with an empty line.
   ```coffeescript
   # bad
-  Marionette.ItemView.extend
+  Marionette.ItemView.extend({
     initialize: ->
-      console.log 'initialized'
+      console.log('initialized')
     serializeData: ->
-      console.log 'serializeData'
+      console.log('serializeData')
+  })
 
   #good
-  Marionette.ItemView.extend
+  Marionette.ItemView.extend({
     initialize: ->
-      console.log 'initialized'
+      console.log('initialized')
 
     serializeData: ->
-      console.log 'serializeData'
+      console.log('serializeData')
+  })
   ```
