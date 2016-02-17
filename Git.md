@@ -28,6 +28,7 @@ Follow these [guidelines](http://chris.beams.io/posts/git-commit/#seven-rules):
 - Use the body to explain what and why vs. how
 
 ## Pull Requests
+- PR titles and bodies should adhere to the same guidelines outlined above for commits.
 - The PR submitter is responsible for handling any reviewer requested changes. This only changes
   in the following scenarios:
   - The submitter requests assistance from a coworker and passes responsibility.
