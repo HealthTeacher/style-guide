@@ -47,6 +47,29 @@ Much of this was taken from [idiomatic-js](https://github.com/necolas/idiomatic-
   throw new TypeError 'expected string, got number'
   ```
 
+- Always use parenthesis and curly brackets for single lines.
+  ```coffeescript
+  # bad
+  vent.trigger 'foo:bar', title: 'Baz'
+
+  # good
+  vent.trigger('foo:bar', { title: 'Baz' })
+  ```
+
+- Do NOT use parenthesis, curly brackets, or commas for multi-line blocks.
+  ```coffeescript
+  # bad
+  new ItemView({
+    id: 'js-item-view',
+    className: 'Card Card--sm'
+  })
+
+  # good
+  new ItemView
+    id: 'js-item-view'
+    className: 'Card Card--sm'
+  ```
+
 ## Strings
 - Use single quoted strings. Only use double quoted strings when interpolation is needed.
   ```coffeescript
