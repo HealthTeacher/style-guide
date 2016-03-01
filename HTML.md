@@ -46,12 +46,12 @@ whitespace, eliminate unintended blank line whitespace, and avoid polluting comm
 Example:
 
 ```html
-<div class="tweet">
-    <a href="path/to/somewhere">
-        <img src="path/to/image.png" alt="">
-    </a>
-    <p>[tweet text]</p>
-    <button disabled>Reply</button>
+<div class="Tweet">
+  <a href="path/to/somewhere">
+    <img src="path/to/image.png" alt="">
+  </a>
+  <p>[tweet text]</p>
+  <button disabled>Reply</button>
 </div>
 ```
 
@@ -67,7 +67,7 @@ Example:
  data-action="[value]"
  data-id="[value]"
  href="[url]">
-    <span>[text]</span>
+  <span>[text]</span>
 </a>
 ```
 
@@ -104,27 +104,27 @@ Example with bad names:
 ```
 
 ```css
-.s-scr {
-  overflow: auto;
-}
-
 .cb {
   background: #000;
+}
+
+.s-scr {
+  overflow: auto;
 }
 ```
 
 Example with better names:
 ```html
-<div class="column-body is-scrollable"></div>
+<div class="ColumnBody u-isScrollable"></div>
 ```
 
 ```css
-.is-scrollable {
-  overflow: auto;
+.ColumnBody {
+  background: #000;
 }
 
-.column-body {
-  background: #000;
+.u-isScrollable {
+  overflow: auto;
 }
 ```
 
@@ -142,8 +142,8 @@ An example of various conventions.
     <script src="main.js"></script>
   </head>
   <body>
-    <article class="post" id="1234">
-      <time class="timestamp">March 15, 2012</time>
+    <article class="Post" id="1234">
+      <time class="Timestamp">March 15, 2012</time>
       <a data-id="1234"
        data-analytics-category="[value]"
        data-analytics-action="[value]"
@@ -158,8 +158,8 @@ An example of various conventions.
         </li>
       </ul>
 
-      <a class="link-complex" href="[url]">
-        <span class="link-complex__target">[text]</span>
+      <a class="LinkComplex" href="[url]">
+        <span class="LinkComplex-target">[text]</span>
         [text]
       </a>
 
