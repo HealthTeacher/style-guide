@@ -8,5 +8,6 @@
 ## Table of Contents
 1. [CSS](CSS.md)
 1. [Git](Git.md)
+1. [HTML](HTML.md)
 1. [JavaScript](JavaScript.md)
 1. [Ruby](Ruby.md)

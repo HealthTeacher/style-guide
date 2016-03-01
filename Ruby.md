@@ -1,5 +1,5 @@
 # Ruby
-Much of this was taken from [GitHub's Style Guide](https://github.com/styleguide/ruby). Please add
+Much of this was inspired by [GitHub's Style Guide](https://github.com/styleguide/ruby). Please add
 to this guide if you find any particular patterns or styles that we've adopted internally. Submit
 a pull request to ask for feedback (if you're an employee).
 
