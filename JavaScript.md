@@ -91,39 +91,60 @@ Much of this was taken from [idiomatic-js](https://github.com/necolas/idiomatic-
 
 ## Marionette
 - Label `View`s with `className` exclusively. Leave `id` for events handlers only.
-- Group single-line properties together at the top of the `View`.
+- Order view properties/methods as follows:
+  1. view properties (alphabetically)
+  1. child view properties (alphabetically)
+  1. Marionette methods (by lifecycle of the view)
+  1. custom methods (alphabetically)
+- Use newlines to group related single-line properties
   ```coffeescript
   # bad
-  Marionette.ItemVew.extend
+  Marionette.CollectionVew.extend
+    itemView: itemView
+    itemViewContainer: '#js-itemview-container'
     template: tpl
-    method: ->
-      console.log 'something'
+
+    customMethod: ->
+
+    ui:
+      backBtn: '#js-back'
+      submitBtn: '#js-submit'
+
+    onClose: ->
+
+    serializeData: ->
+
+    onRender: ->
+
     className: 'view-edit-classroom'
+
+    initialize: ->
+
+    otherCustomMethod: ->
 
   # good
-  Marionette.ItemVew.extend
-    template: tpl
+  Marionette.CollectionVew.extend
     className: 'view-edit-classroom'
+    template: tpl
 
-    method: ->
-      console.log 'something'
-  ```
+    itemView: itemView
+    itemViewContainer: '#js-itemview-container'
 
-- Order methods to follow the "life" of a `View`.
-  ```coffeescript
-  # bad
-  Marionette.ItemView.extend
-    onClose: ->
-    serializeData: ->
-    onRender: ->
+    ui:
+      backBtn: '#js-back'
+      submitBtn: '#js-submit'
+
     initialize: ->
 
-  #good
-  Marionette.ItemView.extend
-    initialize: ->
     serializeData: ->
+
     onRender: ->
+
     onClose: ->
+
+    customMethod: ->
+
+    otherCustomMethod: ->
   ```
 
 - Separate multi-line properties with an empty line.
