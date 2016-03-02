@@ -100,6 +100,9 @@ Much of this was taken from [idiomatic-js](https://github.com/necolas/idiomatic-
     itemView: itemView
     itemViewContainer: '#js-itemview-container'
     template: tpl
+    ui:
+      backBtn: '#js-back'
+      submitBtn: '#js-submit'
     method: ->
       console.log 'something'
     className: 'view-edit-classroom'
@@ -112,11 +115,15 @@ Much of this was taken from [idiomatic-js](https://github.com/necolas/idiomatic-
     itemView: itemView
     itemViewContainer: '#js-itemview-container'
 
+    ui:
+      backBtn: '#js-back'
+      submitBtn: '#js-submit'
+
     method: ->
       console.log 'something'
   ```
 
-- Order methods to follow the "life" of a `View`.
+- Order methods to follow the "lifecycle" of a `View`.
   ```coffeescript
   # bad
   Marionette.ItemView.extend
@@ -131,6 +138,23 @@ Much of this was taken from [idiomatic-js](https://github.com/necolas/idiomatic-
     serializeData: ->
     onRender: ->
     onClose: ->
+  ```
+
+- Custom methods should be ordered alphabetically after the "lifecycle" methods
+  ```coffeescript
+  # bad
+  Marionette.ItemView.extend
+    myMethod: ->
+    doSomething: ->
+    zzzmethod: ->
+    addItem: ->
+
+  #good
+  Marionette.ItemView.extend
+    addItem: ->
+    doSomething: ->
+    myMethod: ->
+    zzzmethod: ->
   ```
 
 - Separate multi-line properties with an empty line.
