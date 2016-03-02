@@ -91,21 +91,36 @@ Much of this was taken from [idiomatic-js](https://github.com/necolas/idiomatic-
 
 ## Marionette
 - Label `View`s with `className` exclusively. Leave `id` for events handlers only.
-- Group single-line properties together at the top of the `View`.
-- Use newlines to group related single-line properties, favoring template/DOM attributes above others
-- Each group of related properties should be alphabetized
+- Order view properties/methods as follows:
+  1. view properties (alphabetically)
+  1. child view properties (alphabetically)
+  1. Marionette methods (by lifecycle of the view)
+  1. custom methods (alphabetically)
+- Use newlines to group related single-line properties
   ```coffeescript
   # bad
   Marionette.CollectionVew.extend
     itemView: itemView
     itemViewContainer: '#js-itemview-container'
     template: tpl
+
+    customMethod: ->
+
     ui:
       backBtn: '#js-back'
       submitBtn: '#js-submit'
-    method: ->
-      console.log 'something'
+
+    onClose: ->
+
+    serializeData: ->
+
+    onRender: ->
+
     className: 'view-edit-classroom'
+
+    initialize: ->
+
+    otherCustomMethod: ->
 
   # good
   Marionette.CollectionVew.extend
@@ -119,42 +134,17 @@ Much of this was taken from [idiomatic-js](https://github.com/necolas/idiomatic-
       backBtn: '#js-back'
       submitBtn: '#js-submit'
 
-    method: ->
-      console.log 'something'
-  ```
-
-- Order methods to follow the "lifecycle" of a `View`.
-  ```coffeescript
-  # bad
-  Marionette.ItemView.extend
-    onClose: ->
-    serializeData: ->
-    onRender: ->
     initialize: ->
 
-  #good
-  Marionette.ItemView.extend
-    initialize: ->
     serializeData: ->
+
     onRender: ->
+
     onClose: ->
-  ```
 
-- Custom methods should be ordered alphabetically after the "lifecycle" methods
-  ```coffeescript
-  # bad
-  Marionette.ItemView.extend
-    myMethod: ->
-    doSomething: ->
-    zzzmethod: ->
-    addItem: ->
+    customMethod: ->
 
-  #good
-  Marionette.ItemView.extend
-    addItem: ->
-    doSomething: ->
-    myMethod: ->
-    zzzmethod: ->
+    otherCustomMethod: ->
   ```
 
 - Separate multi-line properties with an empty line.
