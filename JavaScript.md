@@ -93,6 +93,7 @@ Much of this was taken from [idiomatic-js](https://github.com/necolas/idiomatic-
 - Label `View`s with `className` exclusively. Leave `id` for events handlers only.
 - Group single-line properties together at the top of the `View`.
 - Use newlines to group related single-line properties, favoring template/DOM attributes above others
+- Each group of related properties should be alphabetized
   ```coffeescript
   # bad
   Marionette.CollectionVew.extend
@@ -105,8 +106,8 @@ Much of this was taken from [idiomatic-js](https://github.com/necolas/idiomatic-
 
   # good
   Marionette.CollectionVew.extend
-    template: tpl
     className: 'view-edit-classroom'
+    template: tpl
 
     itemView: itemView
     itemViewContainer: '#js-itemview-container'
