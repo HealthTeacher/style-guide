@@ -1,5 +1,5 @@
 # JavaScript
-Much of this was taken from [idiomatic-js](https://github.com/necolas/idiomatic-js). Please add to this guide if you find any particular patterns or styles that we've adopted internally. Submit a pull request to ask for feedback (if you're an employee).
+Much of this was inspired by [idiomatic-js](https://github.com/necolas/idiomatic-js). Please add to this guide if you find any particular patterns or styles that we've adopted internally. Submit a pull request to ask for feedback (if you're an employee).
 
 ## Table of Contents
 1. [Naming](#naming)
