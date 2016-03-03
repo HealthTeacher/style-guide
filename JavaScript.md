@@ -156,7 +156,7 @@ Much of this was inspired by [idiomatic-js](https://github.com/necolas/idiomatic
     serializeData: ->
       console.log 'serializeData'
 
-  #good
+  # good
   Marionette.ItemView.extend
     initialize: ->
       console.log 'initialized'
