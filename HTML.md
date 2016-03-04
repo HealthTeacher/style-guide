@@ -64,9 +64,9 @@ Example:
 
 ```html
 <a class="[value]"
- data-action="[value]"
- data-id="[value]"
- href="[url]">
+  data-action="[value]"
+  data-id="[value]"
+  href="[url]">
   <span>[text]</span>
 </a>
 ```
@@ -145,9 +145,9 @@ An example of various conventions.
     <article class="Post" id="1234">
       <time class="Timestamp">March 15, 2012</time>
       <a data-id="1234"
-       data-analytics-category="[value]"
-       data-analytics-action="[value]"
-       href="[url]">[text]</a>
+        data-analytics-category="[value]"
+        data-analytics-action="[value]"
+        href="[url]">[text]</a>
       <ul>
         <li>
           <a href="[url]">[text]</a>
