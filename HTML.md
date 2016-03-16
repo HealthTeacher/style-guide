@@ -7,17 +7,17 @@ Much of this was inspired by [idiomatic-html](https://github.com/necolas/idiomat
 1. [Format](#format)
 1. [Attribute order](#attribute-order)
 1. [Naming](#naming)
-1. [Practical example](#example)
+1. [Practical example](#practical-example)
 
 
-## 1. General principles
+## General principles
 - All code in any code-base should look like a single person typed it, no
   matter how many people contributed.
 - Strictly enforce the agreed upon style.
 - If in doubt when deciding upon a style, use existing, common patterns.
 
 
-## 2. Whitespace
+## Whitespace
 Only one style should exist across the entire source of your code-base. Always
 be consistent in your use of whitespace. Use whitespace to improve
 readability.
@@ -30,7 +30,7 @@ readability.
 whitespace, eliminate unintended blank line whitespace, and avoid polluting commits.*
 
 
-## 3. Format
+## Format
 - Keep line-length to 100 columns or fewer.
 - Always use lowercase tag and attribute names.
 - Write one discrete element per line.
@@ -72,7 +72,7 @@ Example:
 ```
 
 
-## 4. Attribute order
+## Attribute order
 HTML attributes should be listed in an order that reflects the fact that class names are the primary
 interface through which CSS selects elements.
 
@@ -87,7 +87,7 @@ Example:
 ````
 
 
-## 5. Naming
+## Naming
 Naming is hard, but very important. It's a crucial part of the process of
 developing a maintainable code base, and ensuring that you have a relatively
 scalable interface between your HTML and CSS/JS.
@@ -129,7 +129,7 @@ Example with better names:
 ```
 
 
-## 6. Practical example
+## Practical example
 An example of various conventions.
 
 ```html
