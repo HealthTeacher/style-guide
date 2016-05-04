@@ -125,14 +125,15 @@ Much of this was inspired by [idiomatic-js](https://github.com/necolas/idiomatic
   # good
   Marionette.CollectionVew.extend
     className: 'view-edit-classroom'
-    template: tpl
-
-    itemView: itemView
-    itemViewContainer: '#js-itemview-container'
 
     ui:
       backBtn: '#js-back'
       submitBtn: '#js-submit'
+
+    template: tpl
+
+    itemView: itemView
+    itemViewContainer: '#js-itemview-container'
 
     initialize: ->
 
