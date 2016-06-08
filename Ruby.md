@@ -16,6 +16,7 @@ a pull request to ask for feedback (if you're an employee).
 1. [Percent Literals](#percent-literals)
 1. [Hashes](#hashes)
 1. [Keyword Arguments](#keyword-arguments)
+1. [Controllers](#controllers)
 
 ## Coding Style
 - Use soft-tabs with a two space indent.
@@ -683,6 +684,27 @@ end
 # Elsewhere, now with more clarity:
 remove_member user, skip_membership_check: true
 ```
+
+### Rails Controllers
+- Return rails [status codes](http://guides.rubyonrails.org/layouts_and_rendering.html#the-status-option) instead of the http code
+
+  ```ruby
+  # bad
+  render json: { errors: kid.errors }, status: 422
+
+  # good
+  render json: { errors: kid.errors }, status: :unprocessable_entity
+  ```
+
+- Empty API responses should use  Header-Only Responses instead of rendering empty json objects
+
+  ```ruby
+  # bad
+  render json: true
+
+  # good
+  head :ok
+  ```
 
 ## Above all else
 
